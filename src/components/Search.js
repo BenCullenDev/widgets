@@ -9,7 +9,7 @@ const Search = () => {
 	useEffect(() => {
 		const timerId = setTimeout(() => {
 			setDebouncedTerm(searchTerm);
-		}, 500);
+		}, 1000);
 
 		return () => {
 			clearTimeout(timerId);
