@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ options, selected, onSelectedChange, label }) => {
 	const [open, setOpen] = useState(false);
 	const ref = useRef();
 	useEffect(() => {
@@ -34,11 +34,20 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 			</div>
 		);
 	});
-
+	const colourChangingText = (label) => {
+		if (label === "Choose a Colour") {
+			return (
+				<p style={{ color: `${selected.value}` }}>
+					Change the colour of this text
+				</p>
+			);
+		}
+		return null;
+	};
 	return (
 		<div ref={ref} className='ui form'>
 			<div className='field'>
-				<label className='label'>Select a Colour</label>
+				<label className='label'>{label}</label>
 				<div
 					onClick={() => {
 						setOpen(!open);
@@ -51,9 +60,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 					</div>
 				</div>
 			</div>
-			<p style={{ color: `${selected.value}` }}>
-				Change the colour of this text
-			</p>
+			{colourChangingText(label)}
 		</div>
 	);
 };
