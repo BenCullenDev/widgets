@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Search = () => {
-	const [searchTerm, setSearchTerm] = useState("Programming");
+	const [searchTerm, setSearchTerm] = useState("programming");
 	const [debouncedTerm, setDebouncedTerm] = useState(searchTerm);
 	const [results, setResults] = useState([]);
 
