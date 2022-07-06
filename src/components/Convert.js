@@ -34,7 +34,9 @@ const Convert = ({ language, text }) => {
 	}, [language, debouncedText]);
 	return (
 		<div>
-			<h1 className='ui header'>{translated}</h1>
+			<h1 className='ui header'>
+				{debouncedText ? translated : "Translated Text will appear here"}
+			</h1>
 		</div>
 	);
 };
