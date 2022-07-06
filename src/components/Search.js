@@ -56,17 +56,20 @@ const Search = () => {
 
 	return (
 		<div>
-			<div className='ui form'>
-				<div className='field'>
-					<label>Enter Search Term</label>
-					<input
-						className='input'
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
+			<h1>Search Widget</h1>
+			<div>
+				<div className='ui form'>
+					<div className='field'>
+						<label>Enter Search Term</label>
+						<input
+							className='input'
+							value={searchTerm}
+							onChange={(e) => setSearchTerm(e.target.value)}
+						/>
+					</div>
 				</div>
+				<div className='ui celled list'>{renderedResults}</div>
 			</div>
-			<div className='ui celled list'>{renderedResults}</div>
 		</div>
 	);
 };

@@ -44,23 +44,32 @@ const Dropdown = ({ options, selected, onSelectedChange, label }) => {
 		}
 		return null;
 	};
+	const dropDownHeader = (label) => {
+		if (label === "Choose a Colour") {
+			return <h1>Dropdown Widget</h1>;
+		}
+		return null;
+	};
 	return (
-		<div ref={ref} className='ui form'>
-			<div className='field'>
-				<label className='label'>{label}</label>
-				<div
-					onClick={() => {
-						setOpen(!open);
-					}}
-					className={`ui selection dropdown ${open ? "visible active" : ""}`}>
-					<i className='dropdown icon'></i>
-					<div className='text'>{selected.label}</div>
-					<div className={`menu ${open ? "visible transition" : ""}`}>
-						{renderedOptions}
+		<div>
+			{dropDownHeader(label)}
+			<div ref={ref} className='ui form'>
+				<div className='field'>
+					<label className='label'>{label}</label>
+					<div
+						onClick={() => {
+							setOpen(!open);
+						}}
+						className={`ui selection dropdown ${open ? "visible active" : ""}`}>
+						<i className='dropdown icon'></i>
+						<div className='text'>{selected.label}</div>
+						<div className={`menu ${open ? "visible transition" : ""}`}>
+							{renderedOptions}
+						</div>
 					</div>
 				</div>
+				{colourChangingText(label)}
 			</div>
-			{colourChangingText(label)}
 		</div>
 	);
 };

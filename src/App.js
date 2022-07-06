@@ -41,7 +41,6 @@ const App = () => {
 	return (
 		<div>
 			<Header />
-			<h1>Widgets App</h1>
 			<Route path='/'>
 				<Accordion items={items} />
 			</Route>

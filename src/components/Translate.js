@@ -22,21 +22,24 @@ const Translate = () => {
 	const [text, setText] = useState("");
 	return (
 		<div>
-			<div className='ui form'>
-				<div className='field'>
-					<label>Enter the text you wish to translate:</label>
-					<input value={text} onChange={(e) => setText(e.target.value)} />
+			<h1>Translate Widget</h1>
+			<div>
+				<div className='ui form'>
+					<div className='field'>
+						<label>Enter the text you wish to translate:</label>
+						<input value={text} onChange={(e) => setText(e.target.value)} />
+					</div>
 				</div>
+				<Dropdown
+					label='Select the language you wish to translate to:'
+					options={options}
+					selected={language}
+					onSelectedChange={setLanguage}
+				/>
+				<hr />
+				<h3 className='ui header'>Output</h3>
+				<Convert text={text} language={language} />
 			</div>
-			<Dropdown
-				label='Select the language you wish to translate to:'
-				options={options}
-				selected={language}
-				onSelectedChange={setLanguage}
-			/>
-			<hr />
-			<h3 className='ui header'>Output</h3>
-			<Convert text={text} language={language} />
 		</div>
 	);
 };
